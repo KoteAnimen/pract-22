@@ -23,5 +23,26 @@ namespace pract_22
             this.infWorkersTableAdapter.Fill(this.listWorkersDataSet.infWorkers);
 
         }
+
+        private void OpenWorkersDirectory_Click(object sender, EventArgs e)
+        {
+            WorkersDirectory workers = new WorkersDirectory();
+            workers.ShowDialog();
+
+        }
+
+        private void OpenListPlaces_Click(object sender, EventArgs e)
+        {
+            ListPlaces places = new ListPlaces();
+            places.ShowDialog();
+
+        }
+
+        private void OpenTarifsDirectory_Click(object sender, EventArgs e)
+        {
+            TarifsDirectory tarifs = new TarifsDirectory();
+            tarifs.ShowDialog();
+
+        }
     }
 }

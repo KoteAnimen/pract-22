@@ -43,11 +43,11 @@ namespace pract_22
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.операцииToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.справочникРаботниковToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.списокЦеховToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.OpenWorkersDirectory = new System.Windows.Forms.ToolStripMenuItem();
+            this.OpenListPlaces = new System.Windows.Forms.ToolStripMenuItem();
+            this.OpenTarifsDirectory = new System.Windows.Forms.ToolStripMenuItem();
             this.справкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.оПрограммеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.справочникТарифовToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.listWorkersDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.infWorkersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.infWorkersDataGridView)).BeginInit();
@@ -106,36 +106,42 @@ namespace pract_22
             this.dataGridViewTextBoxColumn1.DataPropertyName = "ТабельныйНомер";
             this.dataGridViewTextBoxColumn1.HeaderText = "ТабельныйНомер";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn2
             // 
             this.dataGridViewTextBoxColumn2.DataPropertyName = "Фамилия";
             this.dataGridViewTextBoxColumn2.HeaderText = "Фамилия";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn3
             // 
             this.dataGridViewTextBoxColumn3.DataPropertyName = "Разряд";
             this.dataGridViewTextBoxColumn3.HeaderText = "Разряд";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn4
             // 
             this.dataGridViewTextBoxColumn4.DataPropertyName = "Тариф";
             this.dataGridViewTextBoxColumn4.HeaderText = "Тариф";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn5
             // 
             this.dataGridViewTextBoxColumn5.DataPropertyName = "ОтрабВремяВЧасах";
             this.dataGridViewTextBoxColumn5.HeaderText = "ОтрабВремяВЧасах";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn6
             // 
             this.dataGridViewTextBoxColumn6.DataPropertyName = "НаименованиеЦеха";
             this.dataGridViewTextBoxColumn6.HeaderText = "НаименованиеЦеха";
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
             // 
             // menuStrip1
             // 
@@ -152,24 +158,33 @@ namespace pract_22
             // операцииToolStripMenuItem
             // 
             this.операцииToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.справочникРаботниковToolStripMenuItem,
-            this.списокЦеховToolStripMenuItem,
-            this.справочникТарифовToolStripMenuItem});
+            this.OpenWorkersDirectory,
+            this.OpenListPlaces,
+            this.OpenTarifsDirectory});
             this.операцииToolStripMenuItem.Name = "операцииToolStripMenuItem";
             this.операцииToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
             this.операцииToolStripMenuItem.Text = "Меню";
             // 
-            // справочникРаботниковToolStripMenuItem
+            // OpenWorkersDirectory
             // 
-            this.справочникРаботниковToolStripMenuItem.Name = "справочникРаботниковToolStripMenuItem";
-            this.справочникРаботниковToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
-            this.справочникРаботниковToolStripMenuItem.Text = "Справочник работников";
+            this.OpenWorkersDirectory.Name = "OpenWorkersDirectory";
+            this.OpenWorkersDirectory.Size = new System.Drawing.Size(210, 22);
+            this.OpenWorkersDirectory.Text = "Справочник работников";
+            this.OpenWorkersDirectory.Click += new System.EventHandler(this.OpenWorkersDirectory_Click);
             // 
-            // списокЦеховToolStripMenuItem
+            // OpenListPlaces
             // 
-            this.списокЦеховToolStripMenuItem.Name = "списокЦеховToolStripMenuItem";
-            this.списокЦеховToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
-            this.списокЦеховToolStripMenuItem.Text = "Список цехов";
+            this.OpenListPlaces.Name = "OpenListPlaces";
+            this.OpenListPlaces.Size = new System.Drawing.Size(210, 22);
+            this.OpenListPlaces.Text = "Список цехов";
+            this.OpenListPlaces.Click += new System.EventHandler(this.OpenListPlaces_Click);
+            // 
+            // OpenTarifsDirectory
+            // 
+            this.OpenTarifsDirectory.Name = "OpenTarifsDirectory";
+            this.OpenTarifsDirectory.Size = new System.Drawing.Size(210, 22);
+            this.OpenTarifsDirectory.Text = "Справочник тарифов";
+            this.OpenTarifsDirectory.Click += new System.EventHandler(this.OpenTarifsDirectory_Click);
             // 
             // справкаToolStripMenuItem
             // 
@@ -185,12 +200,6 @@ namespace pract_22
             this.оПрограммеToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
             this.оПрограммеToolStripMenuItem.Text = "О программе";
             // 
-            // справочникТарифовToolStripMenuItem
-            // 
-            this.справочникТарифовToolStripMenuItem.Name = "справочникТарифовToolStripMenuItem";
-            this.справочникТарифовToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
-            this.справочникТарифовToolStripMenuItem.Text = "Справочник тарифов";
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -203,6 +212,7 @@ namespace pract_22
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MainForm";
             this.Text = "Работники предприятия";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.listWorkersDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.infWorkersBindingSource)).EndInit();
@@ -229,11 +239,11 @@ namespace pract_22
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem операцииToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem справочникРаботниковToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem списокЦеховToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem OpenWorkersDirectory;
+        private System.Windows.Forms.ToolStripMenuItem OpenListPlaces;
         private System.Windows.Forms.ToolStripMenuItem справкаToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem оПрограммеToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem справочникТарифовToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem OpenTarifsDirectory;
     }
 }
 

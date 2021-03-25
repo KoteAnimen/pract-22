@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ListPlaces.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ListPlaces.Designer.cs">
+      <DependentUpon>ListPlaces.cs</DependentUpon>
+    </Compile>
     <Compile Include="listWorkersDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -59,6 +65,21 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TarifsDirectory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TarifsDirectory.Designer.cs">
+      <DependentUpon>TarifsDirectory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WorkersDirectory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WorkersDirectory.Designer.cs">
+      <DependentUpon>WorkersDirectory.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="ListPlaces.resx">
+      <DependentUpon>ListPlaces.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -71,6 +92,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="TarifsDirectory.resx">
+      <DependentUpon>TarifsDirectory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WorkersDirectory.resx">
+      <DependentUpon>WorkersDirectory.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="listWorkersDataSet.xsc">
       <DependentUpon>listWorkersDataSet.xsd</DependentUpon>
     </None>
