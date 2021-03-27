@@ -30,10 +30,6 @@ namespace pract_22
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.listWorkersDataSet = new pract_22.listWorkersDataSet();
-            this.infWorkersBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.infWorkersTableAdapter = new pract_22.listWorkersDataSetTableAdapters.infWorkersTableAdapter();
-            this.tableAdapterManager = new pract_22.listWorkersDataSetTableAdapters.TableAdapterManager();
             this.infWorkersDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -41,42 +37,26 @@ namespace pract_22
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.infWorkersBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.listWorkersDataSet = new pract_22.listWorkersDataSet();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.операцииToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.OpenWorkersDirectory = new System.Windows.Forms.ToolStripMenuItem();
             this.OpenListPlaces = new System.Windows.Forms.ToolStripMenuItem();
             this.OpenTarifsDirectory = new System.Windows.Forms.ToolStripMenuItem();
+            this.запросыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ShowListPlaceWorkers = new System.Windows.Forms.ToolStripMenuItem();
+            this.CountPlaceWorkers = new System.Windows.Forms.ToolStripMenuItem();
+            this.ShowAll = new System.Windows.Forms.ToolStripMenuItem();
             this.справкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.оПрограммеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            ((System.ComponentModel.ISupportInitialize)(this.listWorkersDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.infWorkersBindingSource)).BeginInit();
+            this.infWorkersTableAdapter = new pract_22.listWorkersDataSetTableAdapters.infWorkersTableAdapter();
+            this.tableAdapterManager = new pract_22.listWorkersDataSetTableAdapters.TableAdapterManager();
             ((System.ComponentModel.ISupportInitialize)(this.infWorkersDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.infWorkersBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.listWorkersDataSet)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // listWorkersDataSet
-            // 
-            this.listWorkersDataSet.DataSetName = "listWorkersDataSet";
-            this.listWorkersDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // infWorkersBindingSource
-            // 
-            this.infWorkersBindingSource.DataMember = "infWorkers";
-            this.infWorkersBindingSource.DataSource = this.listWorkersDataSet;
-            // 
-            // infWorkersTableAdapter
-            // 
-            this.infWorkersTableAdapter.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.Connection = null;
-            this.tableAdapterManager.UpdateOrder = pract_22.listWorkersDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            this.tableAdapterManager.СписокЦеховTableAdapter = null;
-            this.tableAdapterManager.СправочникРаботниковTableAdapter = null;
-            this.tableAdapterManager.СправочникТарифовTableAdapter = null;
-            this.tableAdapterManager.ТабельTableAdapter = null;
             // 
             // infWorkersDataGridView
             // 
@@ -143,10 +123,21 @@ namespace pract_22
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             this.dataGridViewTextBoxColumn6.ReadOnly = true;
             // 
+            // infWorkersBindingSource
+            // 
+            this.infWorkersBindingSource.DataMember = "infWorkers";
+            this.infWorkersBindingSource.DataSource = this.listWorkersDataSet;
+            // 
+            // listWorkersDataSet
+            // 
+            this.listWorkersDataSet.DataSetName = "listWorkersDataSet";
+            this.listWorkersDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.операцииToolStripMenuItem,
+            this.запросыToolStripMenuItem,
             this.справкаToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -186,6 +177,36 @@ namespace pract_22
             this.OpenTarifsDirectory.Text = "Справочник тарифов";
             this.OpenTarifsDirectory.Click += new System.EventHandler(this.OpenTarifsDirectory_Click);
             // 
+            // запросыToolStripMenuItem
+            // 
+            this.запросыToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ShowListPlaceWorkers,
+            this.CountPlaceWorkers,
+            this.ShowAll});
+            this.запросыToolStripMenuItem.Name = "запросыToolStripMenuItem";
+            this.запросыToolStripMenuItem.Size = new System.Drawing.Size(68, 20);
+            this.запросыToolStripMenuItem.Text = "Запросы";
+            // 
+            // ShowListPlaceWorkers
+            // 
+            this.ShowListPlaceWorkers.Name = "ShowListPlaceWorkers";
+            this.ShowListPlaceWorkers.Size = new System.Drawing.Size(309, 22);
+            this.ShowListPlaceWorkers.Text = "Показать список работников цеха";
+            this.ShowListPlaceWorkers.Click += new System.EventHandler(this.ShowListPlaceWorkers_Click);
+            // 
+            // CountPlaceWorkers
+            // 
+            this.CountPlaceWorkers.Name = "CountPlaceWorkers";
+            this.CountPlaceWorkers.Size = new System.Drawing.Size(309, 22);
+            this.CountPlaceWorkers.Text = "Подсчитать количество работников в цехе";
+            // 
+            // ShowAll
+            // 
+            this.ShowAll.Name = "ShowAll";
+            this.ShowAll.Size = new System.Drawing.Size(309, 22);
+            this.ShowAll.Text = "Показать все";
+            this.ShowAll.Click += new System.EventHandler(this.ShowAll_Click);
+            // 
             // справкаToolStripMenuItem
             // 
             this.справкаToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -199,6 +220,20 @@ namespace pract_22
             this.оПрограммеToolStripMenuItem.Name = "оПрограммеToolStripMenuItem";
             this.оПрограммеToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
             this.оПрограммеToolStripMenuItem.Text = "О программе";
+            // 
+            // infWorkersTableAdapter
+            // 
+            this.infWorkersTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.Connection = null;
+            this.tableAdapterManager.UpdateOrder = pract_22.listWorkersDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.tableAdapterManager.СписокЦеховTableAdapter = null;
+            this.tableAdapterManager.СправочникРаботниковTableAdapter = null;
+            this.tableAdapterManager.СправочникТарифовTableAdapter = null;
+            this.tableAdapterManager.ТабельTableAdapter = null;
             // 
             // MainForm
             // 
@@ -214,9 +249,9 @@ namespace pract_22
             this.Text = "Работники предприятия";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.MainForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.listWorkersDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.infWorkersBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.infWorkersDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.infWorkersBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.listWorkersDataSet)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -244,6 +279,10 @@ namespace pract_22
         private System.Windows.Forms.ToolStripMenuItem справкаToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem оПрограммеToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem OpenTarifsDirectory;
+        private System.Windows.Forms.ToolStripMenuItem запросыToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ShowListPlaceWorkers;
+        private System.Windows.Forms.ToolStripMenuItem CountPlaceWorkers;
+        private System.Windows.Forms.ToolStripMenuItem ShowAll;
     }
 }
 

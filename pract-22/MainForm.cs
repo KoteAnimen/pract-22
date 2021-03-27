@@ -44,5 +44,24 @@ namespace pract_22
             tarifs.ShowDialog();
 
         }
+
+        private void ShowListPlaceWorkers_Click(object sender, EventArgs e)
+        {
+            if(Data.resolution == true)
+            {
+                this.infWorkersTableAdapter.FillBy(this.listWorkersDataSet.infWorkers, Data.namePlace);
+            }            
+        }
+
+        private void ShowAll_Click(object sender, EventArgs e)
+        {
+            this.infWorkersTableAdapter.Fill(this.listWorkersDataSet.infWorkers);
+        }
+    }
+
+    public static class Data
+    {
+        public static string namePlace;
+        public static bool resolution;
     }
 }
