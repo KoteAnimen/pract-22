@@ -79,6 +79,12 @@ namespace pract_22
             table.ShowDialog();
             this.workersTableAdapter.Fill(this.listWorkersDataSet.Workers);
         }
+
+        private void GetWorkersSalary_Click(object sender, EventArgs e)
+        {
+            WorkersSalary salary = new WorkersSalary();
+            salary.ShowDialog();
+        }
     }
 
     public static class Data

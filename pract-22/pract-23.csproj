@@ -101,6 +101,12 @@
     <Compile Include="WorkersDirectory.Designer.cs">
       <DependentUpon>WorkersDirectory.cs</DependentUpon>
     </Compile>
+    <Compile Include="WorkersSalary.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WorkersSalary.Designer.cs">
+      <DependentUpon>WorkersSalary.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AddPlace.resx">
       <DependentUpon>AddPlace.cs</DependentUpon>
     </EmbeddedResource>
@@ -133,6 +139,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="WorkersDirectory.resx">
       <DependentUpon>WorkersDirectory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WorkersSalary.resx">
+      <DependentUpon>WorkersSalary.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="listWorkersDataSet.xsc">
       <DependentUpon>listWorkersDataSet.xsd</DependentUpon>
