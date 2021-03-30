@@ -318,6 +318,27 @@ FROM            ((СправочникРаботников INNER JOIN
             </Mappings>
             <Sources />
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="task4TableAdapter" GeneratorDataComponentClassName="task4TableAdapter" Name="task4" UserDataComponentName="task4TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="listWorkersConnectionString (Settings)" DbObjectName="СправочникРаботников" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        СправочникРаботников.Цех, AVG(СправочникТарифов.Тариф * Табель.ОтрабВремяВЧасах) AS СредняяЗарплата
+FROM            ((СправочникРаботников INNER JOIN
+                         СправочникТарифов ON СправочникРаботников.Разряд = СправочникТарифов.Разряд) INNER JOIN
+                         Табель ON СправочникРаботников.ТабельныйНомер = Табель.ТабельныйНомер)
+GROUP BY СправочникРаботников.Цех</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Цех" DataSetColumn="Цех" />
+              <Mapping SourceColumn="СредняяЗарплата" DataSetColumn="СредняяЗарплата" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
@@ -450,6 +471,20 @@ FROM            ((СправочникРаботников INNER JOIN
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="task4" msprop:Generator_TableClassName="task4DataTable" msprop:Generator_TableVarName="tabletask4" msprop:Generator_TablePropName="task4" msprop:Generator_RowDeletingName="task4RowDeleting" msprop:Generator_RowChangingName="task4RowChanging" msprop:Generator_RowEvHandlerName="task4RowChangeEventHandler" msprop:Generator_RowDeletedName="task4RowDeleted" msprop:Generator_UserTableName="task4" msprop:Generator_RowChangedName="task4RowChanged" msprop:Generator_RowEvArgName="task4RowChangeEvent" msprop:Generator_RowClassName="task4Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Цех" msprop:Generator_ColumnVarNameInTable="columnЦех" msprop:Generator_ColumnPropNameInRow="Цех" msprop:Generator_ColumnPropNameInTable="ЦехColumn" msprop:Generator_UserColumnName="Цех" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="СредняяЗарплата" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnСредняяЗарплата" msprop:Generator_ColumnPropNameInRow="СредняяЗарплата" msprop:Generator_ColumnPropNameInTable="СредняяЗарплатаColumn" msprop:Generator_UserColumnName="СредняяЗарплата" type="xs:double" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
@@ -479,6 +514,7 @@ FROM            ((СправочникРаботников INNER JOIN
       <msdata:Relationship name="СправочникТарифовСправочникРаботников1" msdata:parent="СправочникТарифов" msdata:child="Workers" msdata:parentkey="Разряд" msdata:childkey="Разряд" msprop:Generator_UserChildTable="Workers" msprop:Generator_ChildPropName="GetWorkersRows" msprop:Generator_UserRelationName="СправочникТарифовСправочникРаботников1" msprop:Generator_RelationVarName="relationСправочникТарифовСправочникРаботников1" msprop:Generator_UserParentTable="СправочникТарифов" msprop:Generator_ParentPropName="СправочникТарифовRow" />
       <msdata:Relationship name="СписокЦеховСправочникРаботников2" msdata:parent="СписокЦехов" msdata:child="Counter" msdata:parentkey="Цех" msdata:childkey="Цех" msprop:Generator_UserChildTable="Counter" msprop:Generator_ChildPropName="GetCounterRows" msprop:Generator_UserRelationName="СписокЦеховСправочникРаботников2" msprop:Generator_ParentPropName="СписокЦеховRow" msprop:Generator_RelationVarName="relationСписокЦеховСправочникРаботников2" msprop:Generator_UserParentTable="СписокЦехов" />
       <msdata:Relationship name="СправочникРаботниковТабель2" msdata:parent="task3" msdata:child="Табель" msdata:parentkey="ТабельныйНомер" msdata:childkey="ТабельныйНомер" msprop:Generator_UserChildTable="Табель" msprop:Generator_ChildPropName="GetТабельRows" msprop:Generator_UserRelationName="СправочникРаботниковТабель2" msprop:Generator_RelationVarName="relationСправочникРаботниковТабель2" msprop:Generator_UserParentTable="task3" msprop:Generator_ParentPropName="task3Row" />
+      <msdata:Relationship name="СписокЦеховСправочникРаботников3" msdata:parent="СписокЦехов" msdata:child="task4" msdata:parentkey="Цех" msdata:childkey="Цех" msprop:Generator_UserChildTable="task4" msprop:Generator_ChildPropName="Gettask4Rows" msprop:Generator_UserRelationName="СписокЦеховСправочникРаботников3" msprop:Generator_ParentPropName="СписокЦеховRow" msprop:Generator_RelationVarName="relationСписокЦеховСправочникРаботников3" msprop:Generator_UserParentTable="СписокЦехов" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>

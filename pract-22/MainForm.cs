@@ -85,6 +85,12 @@ namespace pract_22
             WorkersSalary salary = new WorkersSalary();
             salary.ShowDialog();
         }
+
+        private void DirectionSalary_Click(object sender, EventArgs e)
+        {
+            AVGSalary salary = new AVGSalary();
+            salary.ShowDialog();
+        }
     }
 
     public static class Data

@@ -52,6 +52,12 @@
     <Compile Include="AddPlace.Designer.cs">
       <DependentUpon>AddPlace.cs</DependentUpon>
     </Compile>
+    <Compile Include="AVGSalary.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AVGSalary.Designer.cs">
+      <DependentUpon>AVGSalary.cs</DependentUpon>
+    </Compile>
     <Compile Include="CountWorkersByPlace.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,6 +115,9 @@
     </Compile>
     <EmbeddedResource Include="AddPlace.resx">
       <DependentUpon>AddPlace.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AVGSalary.resx">
+      <DependentUpon>AVGSalary.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CountWorkersByPlace.resx">
       <DependentUpon>CountWorkersByPlace.cs</DependentUpon>
