@@ -41,20 +41,21 @@ namespace pract_22
             this.ShowAll = new System.Windows.Forms.ToolStripMenuItem();
             this.справкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.AboutUs = new System.Windows.Forms.ToolStripMenuItem();
-            this.listWorkersDataSet = new pract_22.listWorkersDataSet();
-            this.workersBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.workersTableAdapter = new pract_22.listWorkersDataSetTableAdapters.WorkersTableAdapter();
-            this.tableAdapterManager = new pract_22.listWorkersDataSetTableAdapters.TableAdapterManager();
             this.workersDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.workersBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.listWorkersDataSet = new pract_22.listWorkersDataSet();
+            this.workersTableAdapter = new pract_22.listWorkersDataSetTableAdapters.WorkersTableAdapter();
+            this.tableAdapterManager = new pract_22.listWorkersDataSetTableAdapters.TableAdapterManager();
+            this.WorkersTabel = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.listWorkersDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.workersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.workersDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.workersBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.listWorkersDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -75,7 +76,8 @@ namespace pract_22
             this.операцииToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.OpenListPlaces,
             this.OpenTarifsDirectory,
-            this.OpenWorkersDirectory});
+            this.OpenWorkersDirectory,
+            this.WorkersTabel});
             this.операцииToolStripMenuItem.Name = "операцииToolStripMenuItem";
             this.операцииToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
             this.операцииToolStripMenuItem.Text = "Меню";
@@ -143,33 +145,9 @@ namespace pract_22
             // AboutUs
             // 
             this.AboutUs.Name = "AboutUs";
-            this.AboutUs.Size = new System.Drawing.Size(180, 22);
+            this.AboutUs.Size = new System.Drawing.Size(149, 22);
             this.AboutUs.Text = "О программе";
             this.AboutUs.Click += new System.EventHandler(this.AboutUs_Click);
-            // 
-            // listWorkersDataSet
-            // 
-            this.listWorkersDataSet.DataSetName = "listWorkersDataSet";
-            this.listWorkersDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // workersBindingSource
-            // 
-            this.workersBindingSource.DataMember = "Workers";
-            this.workersBindingSource.DataSource = this.listWorkersDataSet;
-            // 
-            // workersTableAdapter
-            // 
-            this.workersTableAdapter.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.Connection = null;
-            this.tableAdapterManager.UpdateOrder = pract_22.listWorkersDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            this.tableAdapterManager.СписокЦеховTableAdapter = null;
-            this.tableAdapterManager.СправочникРаботниковTableAdapter = null;
-            this.tableAdapterManager.СправочникТарифовTableAdapter = null;
-            this.tableAdapterManager.ТабельTableAdapter = null;
             // 
             // workersDataGridView
             // 
@@ -227,6 +205,37 @@ namespace pract_22
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             this.dataGridViewTextBoxColumn5.ReadOnly = true;
             // 
+            // workersBindingSource
+            // 
+            this.workersBindingSource.DataMember = "Workers";
+            this.workersBindingSource.DataSource = this.listWorkersDataSet;
+            // 
+            // listWorkersDataSet
+            // 
+            this.listWorkersDataSet.DataSetName = "listWorkersDataSet";
+            this.listWorkersDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // workersTableAdapter
+            // 
+            this.workersTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.Connection = null;
+            this.tableAdapterManager.UpdateOrder = pract_22.listWorkersDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.tableAdapterManager.СписокЦеховTableAdapter = null;
+            this.tableAdapterManager.СправочникРаботниковTableAdapter = null;
+            this.tableAdapterManager.СправочникТарифовTableAdapter = null;
+            this.tableAdapterManager.ТабельTableAdapter = null;
+            // 
+            // WorkersTabel
+            // 
+            this.WorkersTabel.Name = "WorkersTabel";
+            this.WorkersTabel.Size = new System.Drawing.Size(210, 22);
+            this.WorkersTabel.Text = "Табель работников";
+            this.WorkersTabel.Click += new System.EventHandler(this.WorkersTabel_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -243,9 +252,9 @@ namespace pract_22
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.listWorkersDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.workersBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.workersDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.workersBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.listWorkersDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -273,6 +282,7 @@ namespace pract_22
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.ToolStripMenuItem WorkersTabel;
     }
 }
 
