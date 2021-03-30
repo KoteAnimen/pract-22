@@ -49,15 +49,17 @@ namespace pract_22
 
         private void ShowListPlaceWorkers_Click(object sender, EventArgs e)
         {
+            PlaceWorkers place = new PlaceWorkers();
+            place.ShowDialog();
             if(Data.resolution == true)
             {
-                
+                workersTableAdapter.FillByPlace(listWorkersDataSet.Workers, Data.namePlace);
             }            
         }
 
         private void ShowAll_Click(object sender, EventArgs e)
         {
-            
+            this.workersTableAdapter.Fill(this.listWorkersDataSet.Workers);
         }
     }
 

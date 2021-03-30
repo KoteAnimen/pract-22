@@ -19,10 +19,10 @@ namespace pract_22
 
         private void Enter_Click(object sender, EventArgs e)
         {
-            if(place.Text != "")
+            if(цехComboBox.Text != "")
             {
                 Data.resolution = true;
-                Data.namePlace = place.Text;
+                Data.namePlace = цехComboBox.Text;
                 Close();
             }
             else
@@ -35,6 +35,15 @@ namespace pract_22
         private void Cancel_Click(object sender, EventArgs e)
         {
             Data.resolution = false;
+        }
+
+        private void PlaceWorkers_Load(object sender, EventArgs e)
+        {
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "listWorkersDataSet.СписокЦехов". При необходимости она может быть перемещена или удалена.
+            this.списокЦеховTableAdapter.Fill(this.listWorkersDataSet.СписокЦехов);
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "listWorkersDataSet.Workers". При необходимости она может быть перемещена или удалена.
+            this.workersTableAdapter.Fill(this.listWorkersDataSet.Workers);
+
         }
     }
 }
