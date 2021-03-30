@@ -220,16 +220,17 @@
             </Mappings>
             <Sources />
           </TableAdapter>
-          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="infWorkersTableAdapter" GeneratorDataComponentClassName="infWorkersTableAdapter" Name="infWorkers" UserDataComponentName="infWorkersTableAdapter">
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="WorkersTableAdapter" GeneratorDataComponentClassName="WorkersTableAdapter" Name="Workers" UserDataComponentName="WorkersTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="listWorkersConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="listWorkersConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT        СправочникРаботников.ТабельныйНомер, СправочникРаботников.Фамилия, СправочникРаботников.Разряд, СправочникТарифов.Тариф, Табель.ОтрабВремяВЧасах, СписокЦехов.НаименованиеЦеха
-FROM            (((Табель INNER JOIN
-                         СправочникРаботников ON Табель.ТабельныйНомер = СправочникРаботников.ТабельныйНомер) INNER JOIN
+                    <CommandText>SELECT        СправочникРаботников.Фамилия, СправочникРаботников.Разряд, СправочникРаботников.Цех, Табель.ОтрабВремяВЧасах, 
+                         СправочникРаботников.ТабельныйНомер
+FROM            (((СправочникРаботников LEFT OUTER JOIN
+                         СправочникТарифов ON СправочникРаботников.Разряд = СправочникТарифов.Разряд) LEFT OUTER JOIN
                          СписокЦехов ON СправочникРаботников.Цех = СписокЦехов.Цех) LEFT OUTER JOIN
-                         СправочникТарифов ON СправочникРаботников.Разряд = СправочникТарифов.Разряд)</CommandText>
+                         Табель ON СправочникРаботников.ТабельныйНомер = Табель.ТабельныйНомер)</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -239,43 +240,10 @@ FROM            (((Табель INNER JOIN
               <Mapping SourceColumn="ТабельныйНомер" DataSetColumn="ТабельныйНомер" />
               <Mapping SourceColumn="Фамилия" DataSetColumn="Фамилия" />
               <Mapping SourceColumn="Разряд" DataSetColumn="Разряд" />
-              <Mapping SourceColumn="Тариф" DataSetColumn="Тариф" />
+              <Mapping SourceColumn="Цех" DataSetColumn="Цех" />
               <Mapping SourceColumn="ОтрабВремяВЧасах" DataSetColumn="ОтрабВремяВЧасах" />
-              <Mapping SourceColumn="НаименованиеЦеха" DataSetColumn="НаименованиеЦеха" />
             </Mappings>
-            <Sources>
-              <DbSource ConnectionRef="listWorkersConnectionString (Settings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="CountTest" Modifier="Public" Name="CountTest" QueryType="Scalar" ScalarCallRetval="System.Int16, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="CountTest">
-                <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT        СправочникРаботников.ТабельныйНомер, СправочникРаботников.Фамилия, СправочникРаботников.Разряд, СправочникТарифов.Тариф, 
-                         Табель.ОтрабВремяВЧасах, СписокЦехов.НаименованиеЦеха
-FROM            (((Табель INNER JOIN
-                         СправочникРаботников ON Табель.ТабельныйНомер = СправочникРаботников.ТабельныйНомер) INNER JOIN
-                         СписокЦехов ON СправочникРаботников.Цех = СписокЦехов.Цех) LEFT OUTER JOIN
-                         СправочникТарифов ON СправочникРаботников.Разряд = СправочникТарифов.Разряд)
-WHERE        (СписокЦехов.НаименованиеЦеха = ?)</CommandText>
-                    <Parameters>
-                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="НаименованиеЦеха" DataSourceName="СписокЦехов" DataTypeServer="DbType.StringFixedLength(100)" DbType="String" Direction="Input" ParameterName="НаименованиеЦеха" Precision="0" ProviderType="WChar" Scale="0" Size="100" SourceColumn="НаименованиеЦеха" SourceColumnNullMapping="false" SourceVersion="Current" />
-                    </Parameters>
-                  </DbCommand>
-                </SelectCommand>
-              </DbSource>
-              <DbSource ConnectionRef="listWorkersConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillBy">
-                <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT        СправочникРаботников.ТабельныйНомер, СправочникРаботников.Фамилия, СправочникРаботников.Разряд, СправочникТарифов.Тариф, Табель.ОтрабВремяВЧасах, СписокЦехов.НаименованиеЦеха
-FROM            (((Табель LEFT OUTER JOIN
-                         СправочникРаботников ON Табель.ТабельныйНомер = СправочникРаботников.ТабельныйНомер) LEFT OUTER JOIN
-                         СписокЦехов ON СправочникРаботников.Цех = СписокЦехов.Цех) LEFT OUTER JOIN
-                         СправочникТарифов ON СправочникРаботников.Разряд = СправочникТарифов.Разряд)
-WHERE СписокЦехов.НаименованиеЦеха = ?</CommandText>
-                    <Parameters>
-                      <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="НаименованиеЦеха" DataSourceName="СписокЦехов" DataTypeServer="DbType.StringFixedLength(100)" DbType="String" Direction="Input" ParameterName="НаименованиеЦеха" Precision="0" ProviderType="WChar" Scale="0" Size="100" SourceColumn="НаименованиеЦеха" SourceColumnNullMapping="false" SourceVersion="Current" />
-                    </Parameters>
-                  </DbCommand>
-                </SelectCommand>
-              </DbSource>
-            </Sources>
+            <Sources />
           </TableAdapter>
         </Tables>
         <Sources />
@@ -285,7 +253,7 @@ WHERE СписокЦехов.НаименованиеЦеха = ?</CommandText>
   <xs:element name="listWorkersDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="listWorkersDataSet" msprop:Generator_UserDSName="listWorkersDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="СписокЦехов" msprop:Generator_TableClassName="СписокЦеховDataTable" msprop:Generator_TableVarName="tableСписокЦехов" msprop:Generator_TablePropName="СписокЦехов" msprop:Generator_RowDeletingName="СписокЦеховRowDeleting" msprop:Generator_RowChangingName="СписокЦеховRowChanging" msprop:Generator_RowEvHandlerName="СписокЦеховRowChangeEventHandler" msprop:Generator_RowDeletedName="СписокЦеховRowDeleted" msprop:Generator_UserTableName="СписокЦехов" msprop:Generator_RowChangedName="СписокЦеховRowChanged" msprop:Generator_RowEvArgName="СписокЦеховRowChangeEvent" msprop:Generator_RowClassName="СписокЦеховRow">
+        <xs:element name="СписокЦехов" msprop:Generator_TableClassName="СписокЦеховDataTable" msprop:Generator_TableVarName="tableСписокЦехов" msprop:Generator_RowChangedName="СписокЦеховRowChanged" msprop:Generator_TablePropName="СписокЦехов" msprop:Generator_RowDeletingName="СписокЦеховRowDeleting" msprop:Generator_RowChangingName="СписокЦеховRowChanging" msprop:Generator_RowEvHandlerName="СписокЦеховRowChangeEventHandler" msprop:Generator_RowDeletedName="СписокЦеховRowDeleted" msprop:Generator_RowClassName="СписокЦеховRow" msprop:Generator_UserTableName="СписокЦехов" msprop:Generator_RowEvArgName="СписокЦеховRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Цех" msprop:Generator_ColumnVarNameInTable="columnЦех" msprop:Generator_ColumnPropNameInRow="Цех" msprop:Generator_ColumnPropNameInTable="ЦехColumn" msprop:Generator_UserColumnName="Цех">
@@ -305,7 +273,7 @@ WHERE СписокЦехов.НаименованиеЦеха = ?</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="СправочникРаботников" msprop:Generator_TableClassName="СправочникРаботниковDataTable" msprop:Generator_TableVarName="tableСправочникРаботников" msprop:Generator_TablePropName="СправочникРаботников" msprop:Generator_RowDeletingName="СправочникРаботниковRowDeleting" msprop:Generator_RowChangingName="СправочникРаботниковRowChanging" msprop:Generator_RowEvHandlerName="СправочникРаботниковRowChangeEventHandler" msprop:Generator_RowDeletedName="СправочникРаботниковRowDeleted" msprop:Generator_UserTableName="СправочникРаботников" msprop:Generator_RowChangedName="СправочникРаботниковRowChanged" msprop:Generator_RowEvArgName="СправочникРаботниковRowChangeEvent" msprop:Generator_RowClassName="СправочникРаботниковRow">
+        <xs:element name="СправочникРаботников" msprop:Generator_TableClassName="СправочникРаботниковDataTable" msprop:Generator_TableVarName="tableСправочникРаботников" msprop:Generator_RowChangedName="СправочникРаботниковRowChanged" msprop:Generator_TablePropName="СправочникРаботников" msprop:Generator_RowDeletingName="СправочникРаботниковRowDeleting" msprop:Generator_RowChangingName="СправочникРаботниковRowChanging" msprop:Generator_RowEvHandlerName="СправочникРаботниковRowChangeEventHandler" msprop:Generator_RowDeletedName="СправочникРаботниковRowDeleted" msprop:Generator_RowClassName="СправочникРаботниковRow" msprop:Generator_UserTableName="СправочникРаботников" msprop:Generator_RowEvArgName="СправочникРаботниковRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ТабельныйНомер" msprop:Generator_ColumnVarNameInTable="columnТабельныйНомер" msprop:Generator_ColumnPropNameInRow="ТабельныйНомер" msprop:Generator_ColumnPropNameInTable="ТабельныйНомерColumn" msprop:Generator_UserColumnName="ТабельныйНомер" type="xs:short" />
@@ -327,7 +295,7 @@ WHERE СписокЦехов.НаименованиеЦеха = ?</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="СправочникТарифов" msprop:Generator_TableClassName="СправочникТарифовDataTable" msprop:Generator_TableVarName="tableСправочникТарифов" msprop:Generator_TablePropName="СправочникТарифов" msprop:Generator_RowDeletingName="СправочникТарифовRowDeleting" msprop:Generator_RowChangingName="СправочникТарифовRowChanging" msprop:Generator_RowEvHandlerName="СправочникТарифовRowChangeEventHandler" msprop:Generator_RowDeletedName="СправочникТарифовRowDeleted" msprop:Generator_UserTableName="СправочникТарифов" msprop:Generator_RowChangedName="СправочникТарифовRowChanged" msprop:Generator_RowEvArgName="СправочникТарифовRowChangeEvent" msprop:Generator_RowClassName="СправочникТарифовRow">
+        <xs:element name="СправочникТарифов" msprop:Generator_TableClassName="СправочникТарифовDataTable" msprop:Generator_TableVarName="tableСправочникТарифов" msprop:Generator_RowChangedName="СправочникТарифовRowChanged" msprop:Generator_TablePropName="СправочникТарифов" msprop:Generator_RowDeletingName="СправочникТарифовRowDeleting" msprop:Generator_RowChangingName="СправочникТарифовRowChanging" msprop:Generator_RowEvHandlerName="СправочникТарифовRowChangeEventHandler" msprop:Generator_RowDeletedName="СправочникТарифовRowDeleted" msprop:Generator_RowClassName="СправочникТарифовRow" msprop:Generator_UserTableName="СправочникТарифов" msprop:Generator_RowEvArgName="СправочникТарифовRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Разряд" msprop:Generator_ColumnVarNameInTable="columnРазряд" msprop:Generator_ColumnPropNameInRow="Разряд" msprop:Generator_ColumnPropNameInTable="РазрядColumn" msprop:Generator_UserColumnName="Разряд" type="xs:int" />
@@ -335,7 +303,7 @@ WHERE СписокЦехов.НаименованиеЦеха = ?</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Табель" msprop:Generator_TableClassName="ТабельDataTable" msprop:Generator_TableVarName="tableТабель" msprop:Generator_TablePropName="Табель" msprop:Generator_RowDeletingName="ТабельRowDeleting" msprop:Generator_RowChangingName="ТабельRowChanging" msprop:Generator_RowEvHandlerName="ТабельRowChangeEventHandler" msprop:Generator_RowDeletedName="ТабельRowDeleted" msprop:Generator_UserTableName="Табель" msprop:Generator_RowChangedName="ТабельRowChanged" msprop:Generator_RowEvArgName="ТабельRowChangeEvent" msprop:Generator_RowClassName="ТабельRow">
+        <xs:element name="Табель" msprop:Generator_TableClassName="ТабельDataTable" msprop:Generator_TableVarName="tableТабель" msprop:Generator_RowChangedName="ТабельRowChanged" msprop:Generator_TablePropName="Табель" msprop:Generator_RowDeletingName="ТабельRowDeleting" msprop:Generator_RowChangingName="ТабельRowChanging" msprop:Generator_RowEvHandlerName="ТабельRowChangeEventHandler" msprop:Generator_RowDeletedName="ТабельRowDeleted" msprop:Generator_RowClassName="ТабельRow" msprop:Generator_UserTableName="Табель" msprop:Generator_RowEvArgName="ТабельRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ТабельныйНомер" msprop:Generator_ColumnVarNameInTable="columnТабельныйНомер" msprop:Generator_ColumnPropNameInRow="ТабельныйНомер" msprop:Generator_ColumnPropNameInTable="ТабельныйНомерColumn" msprop:Generator_UserColumnName="ТабельныйНомер" type="xs:short" />
@@ -350,7 +318,7 @@ WHERE СписокЦехов.НаименованиеЦеха = ?</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="infWorkers" msprop:Generator_TableClassName="infWorkersDataTable" msprop:Generator_TableVarName="tableinfWorkers" msprop:Generator_RowChangedName="infWorkersRowChanged" msprop:Generator_TablePropName="infWorkers" msprop:Generator_RowDeletingName="infWorkersRowDeleting" msprop:Generator_RowChangingName="infWorkersRowChanging" msprop:Generator_RowEvHandlerName="infWorkersRowChangeEventHandler" msprop:Generator_RowDeletedName="infWorkersRowDeleted" msprop:Generator_RowClassName="infWorkersRow" msprop:Generator_UserTableName="infWorkers" msprop:Generator_RowEvArgName="infWorkersRowChangeEvent">
+        <xs:element name="Workers" msprop:Generator_TableClassName="WorkersDataTable" msprop:Generator_TableVarName="tableWorkers" msprop:Generator_TablePropName="Workers" msprop:Generator_RowDeletingName="WorkersRowDeleting" msprop:Generator_RowChangingName="WorkersRowChanging" msprop:Generator_RowEvHandlerName="WorkersRowChangeEventHandler" msprop:Generator_RowDeletedName="WorkersRowDeleted" msprop:Generator_UserTableName="Workers" msprop:Generator_RowChangedName="WorkersRowChanged" msprop:Generator_RowEvArgName="WorkersRowChangeEvent" msprop:Generator_RowClassName="WorkersRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ТабельныйНомер" msprop:Generator_ColumnVarNameInTable="columnТабельныйНомер" msprop:Generator_ColumnPropNameInRow="ТабельныйНомер" msprop:Generator_ColumnPropNameInTable="ТабельныйНомерColumn" msprop:Generator_UserColumnName="ТабельныйНомер" type="xs:short" minOccurs="0" />
@@ -362,18 +330,17 @@ WHERE СписокЦехов.НаименованиеЦеха = ?</CommandText>
                 </xs:simpleType>
               </xs:element>
               <xs:element name="Разряд" msprop:Generator_ColumnVarNameInTable="columnРазряд" msprop:Generator_ColumnPropNameInRow="Разряд" msprop:Generator_ColumnPropNameInTable="РазрядColumn" msprop:Generator_UserColumnName="Разряд" type="xs:int" minOccurs="0" />
-              <xs:element name="Тариф" msprop:Generator_ColumnVarNameInTable="columnТариф" msprop:Generator_ColumnPropNameInRow="Тариф" msprop:Generator_ColumnPropNameInTable="ТарифColumn" msprop:Generator_UserColumnName="Тариф" type="xs:int" minOccurs="0" />
-              <xs:element name="ОтрабВремяВЧасах" msprop:Generator_ColumnVarNameInTable="columnОтрабВремяВЧасах" msprop:Generator_ColumnPropNameInRow="ОтрабВремяВЧасах" msprop:Generator_ColumnPropNameInTable="ОтрабВремяВЧасахColumn" msprop:Generator_UserColumnName="ОтрабВремяВЧасах" minOccurs="0">
+              <xs:element name="Цех" msprop:Generator_ColumnVarNameInTable="columnЦех" msprop:Generator_ColumnPropNameInRow="Цех" msprop:Generator_ColumnPropNameInTable="ЦехColumn" msprop:Generator_UserColumnName="Цех" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="255" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="НаименованиеЦеха" msprop:Generator_ColumnVarNameInTable="columnНаименованиеЦеха" msprop:Generator_ColumnPropNameInRow="НаименованиеЦеха" msprop:Generator_ColumnPropNameInTable="НаименованиеЦехаColumn" msprop:Generator_UserColumnName="НаименованиеЦеха" minOccurs="0">
+              <xs:element name="ОтрабВремяВЧасах" msprop:Generator_ColumnVarNameInTable="columnОтрабВремяВЧасах" msprop:Generator_ColumnPropNameInRow="ОтрабВремяВЧасах" msprop:Generator_ColumnPropNameInTable="ОтрабВремяВЧасахColumn" msprop:Generator_UserColumnName="ОтрабВремяВЧасах" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
-                    <xs:maxLength value="100" />
+                    <xs:maxLength value="255" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
@@ -401,9 +368,12 @@ WHERE СписокЦехов.НаименованиеЦеха = ?</CommandText>
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="СписокЦеховСправочникРаботников" msdata:parent="СписокЦехов" msdata:child="СправочникРаботников" msdata:parentkey="Цех" msdata:childkey="Цех" msprop:Generator_UserChildTable="СправочникРаботников" msprop:Generator_ChildPropName="GetСправочникРаботниковRows" msprop:Generator_UserRelationName="СписокЦеховСправочникРаботников" msprop:Generator_ParentPropName="СписокЦеховRow" msprop:Generator_RelationVarName="relationСписокЦеховСправочникРаботников" msprop:Generator_UserParentTable="СписокЦехов" />
-      <msdata:Relationship name="СправочникТарифовСправочникРаботников" msdata:parent="СправочникТарифов" msdata:child="СправочникРаботников" msdata:parentkey="Разряд" msdata:childkey="Разряд" msprop:Generator_UserChildTable="СправочникРаботников" msprop:Generator_ChildPropName="GetСправочникРаботниковRows" msprop:Generator_UserRelationName="СправочникТарифовСправочникРаботников" msprop:Generator_RelationVarName="relationСправочникТарифовСправочникРаботников" msprop:Generator_UserParentTable="СправочникТарифов" msprop:Generator_ParentPropName="СправочникТарифовRow" />
-      <msdata:Relationship name="СправочникРаботниковТабель" msdata:parent="СправочникРаботников" msdata:child="Табель" msdata:parentkey="ТабельныйНомер" msdata:childkey="ТабельныйНомер" msprop:Generator_UserChildTable="Табель" msprop:Generator_ChildPropName="GetТабельRows" msprop:Generator_UserRelationName="СправочникРаботниковТабель" msprop:Generator_ParentPropName="СправочникРаботниковRow" msprop:Generator_RelationVarName="relationСправочникРаботниковТабель" msprop:Generator_UserParentTable="СправочникРаботников" />
+      <msdata:Relationship name="СписокЦеховСправочникРаботников" msdata:parent="СписокЦехов" msdata:child="СправочникРаботников" msdata:parentkey="Цех" msdata:childkey="Цех" msprop:Generator_UserChildTable="СправочникРаботников" msprop:Generator_ChildPropName="GetСправочникРаботниковRows" msprop:Generator_UserRelationName="СписокЦеховСправочникРаботников" msprop:Generator_RelationVarName="relationСписокЦеховСправочникРаботников" msprop:Generator_UserParentTable="СписокЦехов" msprop:Generator_ParentPropName="СписокЦеховRow" />
+      <msdata:Relationship name="СправочникТарифовСправочникРаботников" msdata:parent="СправочникТарифов" msdata:child="СправочникРаботников" msdata:parentkey="Разряд" msdata:childkey="Разряд" msprop:Generator_UserChildTable="СправочникРаботников" msprop:Generator_ChildPropName="GetСправочникРаботниковRows" msprop:Generator_UserRelationName="СправочникТарифовСправочникРаботников" msprop:Generator_ParentPropName="СправочникТарифовRow" msprop:Generator_RelationVarName="relationСправочникТарифовСправочникРаботников" msprop:Generator_UserParentTable="СправочникТарифов" />
+      <msdata:Relationship name="СправочникРаботниковТабель" msdata:parent="СправочникРаботников" msdata:child="Табель" msdata:parentkey="ТабельныйНомер" msdata:childkey="ТабельныйНомер" msprop:Generator_UserChildTable="Табель" msprop:Generator_ChildPropName="GetТабельRows" msprop:Generator_UserRelationName="СправочникРаботниковТабель" msprop:Generator_RelationVarName="relationСправочникРаботниковТабель" msprop:Generator_UserParentTable="СправочникРаботников" msprop:Generator_ParentPropName="СправочникРаботниковRow" />
+      <msdata:Relationship name="СправочникРаботниковТабель1" msdata:parent="Workers" msdata:child="Табель" msdata:parentkey="ТабельныйНомер" msdata:childkey="ТабельныйНомер" msprop:Generator_UserChildTable="Табель" msprop:Generator_ChildPropName="GetТабельRows" msprop:Generator_UserRelationName="СправочникРаботниковТабель1" msprop:Generator_RelationVarName="relationСправочникРаботниковТабель1" msprop:Generator_UserParentTable="Workers" msprop:Generator_ParentPropName="WorkersRow" />
+      <msdata:Relationship name="СписокЦеховСправочникРаботников1" msdata:parent="СписокЦехов" msdata:child="Workers" msdata:parentkey="Цех" msdata:childkey="Цех" msprop:Generator_UserChildTable="Workers" msprop:Generator_ChildPropName="GetWorkersRows" msprop:Generator_UserRelationName="СписокЦеховСправочникРаботников1" msprop:Generator_ParentPropName="СписокЦеховRow" msprop:Generator_RelationVarName="relationСписокЦеховСправочникРаботников1" msprop:Generator_UserParentTable="СписокЦехов" />
+      <msdata:Relationship name="СправочникТарифовСправочникРаботников1" msdata:parent="СправочникТарифов" msdata:child="Workers" msdata:parentkey="Разряд" msdata:childkey="Разряд" msprop:Generator_UserChildTable="Workers" msprop:Generator_ChildPropName="GetWorkersRows" msprop:Generator_UserRelationName="СправочникТарифовСправочникРаботников1" msprop:Generator_ParentPropName="СправочникТарифовRow" msprop:Generator_RelationVarName="relationСправочникТарифовСправочникРаботников1" msprop:Generator_UserParentTable="СправочникТарифов" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>

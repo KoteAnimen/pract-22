@@ -19,8 +19,10 @@ namespace pract_22
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "listWorkersDataSet.Workers". При необходимости она может быть перемещена или удалена.
+            this.workersTableAdapter.Fill(this.listWorkersDataSet.Workers);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "listWorkersDataSet.infWorkers". При необходимости она может быть перемещена или удалена.
-            this.infWorkersTableAdapter.Fill(this.listWorkersDataSet.infWorkers);
+            
 
         }
 
@@ -49,13 +51,13 @@ namespace pract_22
         {
             if(Data.resolution == true)
             {
-                this.infWorkersTableAdapter.FillBy(this.listWorkersDataSet.infWorkers, Data.namePlace);
+                
             }            
         }
 
         private void ShowAll_Click(object sender, EventArgs e)
         {
-            this.infWorkersTableAdapter.Fill(this.listWorkersDataSet.infWorkers);
+            
         }
     }
 

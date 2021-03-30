@@ -36,28 +36,40 @@ namespace pract_22
             this.справочникРаботниковTableAdapter = new pract_22.listWorkersDataSetTableAdapters.СправочникРаботниковTableAdapter();
             this.tableAdapterManager = new pract_22.listWorkersDataSetTableAdapters.TableAdapterManager();
             this.справочникРаботниковBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
-            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
-            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
+            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.справочникРаботниковBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.справочникРаботниковDataGridView = new System.Windows.Forms.DataGridView();
+            this.списокЦеховBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.списокЦеховTableAdapter = new pract_22.listWorkersDataSetTableAdapters.СписокЦеховTableAdapter();
+            this.списокЦеховСправочникРаботниковBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.списокЦеховСправочникРаботниковBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.списокЦеховBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.справочникТарифовBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.справочникТарифовTableAdapter = new pract_22.listWorkersDataSetTableAdapters.СправочникТарифовTableAdapter();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Разряд = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.Цех = new System.Windows.Forms.DataGridViewComboBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.listWorkersDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.справочникРаботниковBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.справочникРаботниковBindingNavigator)).BeginInit();
             this.справочникРаботниковBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.справочникРаботниковDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.списокЦеховBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.списокЦеховСправочникРаботниковBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.списокЦеховСправочникРаботниковBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.списокЦеховBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.справочникТарифовBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // listWorkersDataSet
@@ -78,9 +90,9 @@ namespace pract_22
             // 
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
             this.tableAdapterManager.UpdateOrder = pract_22.listWorkersDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            this.tableAdapterManager.СписокЦеховTableAdapter = null;
+            this.tableAdapterManager.СписокЦеховTableAdapter = this.списокЦеховTableAdapter;
             this.tableAdapterManager.СправочникРаботниковTableAdapter = this.справочникРаботниковTableAdapter;
-            this.tableAdapterManager.СправочникТарифовTableAdapter = null;
+            this.tableAdapterManager.СправочникТарифовTableAdapter = this.справочникТарифовTableAdapter;
             this.tableAdapterManager.ТабельTableAdapter = null;
             // 
             // справочникРаботниковBindingNavigator
@@ -112,31 +124,6 @@ namespace pract_22
             this.справочникРаботниковBindingNavigator.Size = new System.Drawing.Size(800, 25);
             this.справочникРаботниковBindingNavigator.TabIndex = 0;
             this.справочникРаботниковBindingNavigator.Text = "bindingNavigator1";
-            // 
-            // bindingNavigatorAddNewItem
-            // 
-            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
-            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
-            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorAddNewItem.Text = "Добавить";
-            // 
-            // bindingNavigatorCountItem
-            // 
-            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(43, 22);
-            this.bindingNavigatorCountItem.Text = "для {0}";
-            this.bindingNavigatorCountItem.ToolTipText = "Общее число элементов";
-            // 
-            // bindingNavigatorDeleteItem
-            // 
-            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
-            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
-            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorDeleteItem.Text = "Удалить";
             // 
             // bindingNavigatorMoveFirstItem
             // 
@@ -170,10 +157,17 @@ namespace pract_22
             this.bindingNavigatorPositionItem.Text = "0";
             this.bindingNavigatorPositionItem.ToolTipText = "Текущее положение";
             // 
+            // bindingNavigatorCountItem
+            // 
+            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(43, 15);
+            this.bindingNavigatorCountItem.Text = "для {0}";
+            this.bindingNavigatorCountItem.ToolTipText = "Общее число элементов";
+            // 
             // bindingNavigatorSeparator1
             // 
-            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
-            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 25);
+            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator";
+            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 6);
             // 
             // bindingNavigatorMoveNextItem
             // 
@@ -181,7 +175,7 @@ namespace pract_22
             this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
             this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
             this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(23, 20);
             this.bindingNavigatorMoveNextItem.Text = "Переместить вперед";
             // 
             // bindingNavigatorMoveLastItem
@@ -190,22 +184,40 @@ namespace pract_22
             this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
             this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
             this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(23, 20);
             this.bindingNavigatorMoveLastItem.Text = "Переместить в конец";
             // 
             // bindingNavigatorSeparator2
             // 
-            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
-            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
+            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator";
+            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 6);
+            // 
+            // bindingNavigatorAddNewItem
+            // 
+            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
+            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
+            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorAddNewItem.Text = "Добавить";
+            // 
+            // bindingNavigatorDeleteItem
+            // 
+            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
+            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
+            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 20);
+            this.bindingNavigatorDeleteItem.Text = "Удалить";
             // 
             // справочникРаботниковBindingNavigatorSaveItem
             // 
             this.справочникРаботниковBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.справочникРаботниковBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("справочникРаботниковBindingNavigatorSaveItem.Image")));
             this.справочникРаботниковBindingNavigatorSaveItem.Name = "справочникРаботниковBindingNavigatorSaveItem";
-            this.справочникРаботниковBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 22);
+            this.справочникРаботниковBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 23);
             this.справочникРаботниковBindingNavigatorSaveItem.Text = "Сохранить данные";
-            this.справочникРаботниковBindingNavigatorSaveItem.Click += new System.EventHandler(this.справочникРаботниковBindingNavigatorSaveItem_Click);
+            this.справочникРаботниковBindingNavigatorSaveItem.Click += new System.EventHandler(this.СправочникРаботниковBindingNavigatorSaveItem_Click_1);
             // 
             // справочникРаботниковDataGridView
             // 
@@ -218,13 +230,46 @@ namespace pract_22
             this.справочникРаботниковDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4});
+            this.Разряд,
+            this.Цех});
             this.справочникРаботниковDataGridView.DataSource = this.справочникРаботниковBindingSource;
             this.справочникРаботниковDataGridView.Location = new System.Drawing.Point(12, 28);
             this.справочникРаботниковDataGridView.Name = "справочникРаботниковDataGridView";
             this.справочникРаботниковDataGridView.Size = new System.Drawing.Size(776, 410);
             this.справочникРаботниковDataGridView.TabIndex = 1;
+            // 
+            // списокЦеховBindingSource
+            // 
+            this.списокЦеховBindingSource.DataMember = "СписокЦехов";
+            this.списокЦеховBindingSource.DataSource = this.listWorkersDataSet;
+            // 
+            // списокЦеховTableAdapter
+            // 
+            this.списокЦеховTableAdapter.ClearBeforeFill = true;
+            // 
+            // списокЦеховСправочникРаботниковBindingSource
+            // 
+            this.списокЦеховСправочникРаботниковBindingSource.DataMember = "СписокЦеховСправочникРаботников";
+            this.списокЦеховСправочникРаботниковBindingSource.DataSource = this.списокЦеховBindingSource;
+            // 
+            // списокЦеховСправочникРаботниковBindingSource1
+            // 
+            this.списокЦеховСправочникРаботниковBindingSource1.DataMember = "СписокЦеховСправочникРаботников";
+            this.списокЦеховСправочникРаботниковBindingSource1.DataSource = this.списокЦеховBindingSource;
+            // 
+            // списокЦеховBindingSource1
+            // 
+            this.списокЦеховBindingSource1.DataMember = "СписокЦехов";
+            this.списокЦеховBindingSource1.DataSource = this.listWorkersDataSet;
+            // 
+            // справочникТарифовBindingSource
+            // 
+            this.справочникТарифовBindingSource.DataMember = "СправочникТарифов";
+            this.справочникТарифовBindingSource.DataSource = this.listWorkersDataSet;
+            // 
+            // справочникТарифовTableAdapter
+            // 
+            this.справочникТарифовTableAdapter.ClearBeforeFill = true;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -238,17 +283,21 @@ namespace pract_22
             this.dataGridViewTextBoxColumn2.HeaderText = "Фамилия";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             // 
-            // dataGridViewTextBoxColumn3
+            // Разряд
             // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "Разряд";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Разряд";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.Разряд.DataPropertyName = "Разряд";
+            this.Разряд.DataSource = this.справочникТарифовBindingSource;
+            this.Разряд.DisplayMember = "Разряд";
+            this.Разряд.HeaderText = "Разряд";
+            this.Разряд.Name = "Разряд";
             // 
-            // dataGridViewTextBoxColumn4
+            // Цех
             // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "Цех";
-            this.dataGridViewTextBoxColumn4.HeaderText = "Цех";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.Цех.DataPropertyName = "Цех";
+            this.Цех.DataSource = this.списокЦеховBindingSource1;
+            this.Цех.DisplayMember = "НаименованиеЦеха";
+            this.Цех.HeaderText = "Цех";
+            this.Цех.Name = "Цех";
             // 
             // WorkersDirectory
             // 
@@ -269,6 +318,11 @@ namespace pract_22
             this.справочникРаботниковBindingNavigator.ResumeLayout(false);
             this.справочникРаботниковBindingNavigator.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.справочникРаботниковDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.списокЦеховBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.списокЦеховСправочникРаботниковBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.списокЦеховСправочникРаботниковBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.списокЦеховBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.справочникТарифовBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -294,9 +348,16 @@ namespace pract_22
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
         private System.Windows.Forms.ToolStripButton справочникРаботниковBindingNavigatorSaveItem;
         private System.Windows.Forms.DataGridView справочникРаботниковDataGridView;
+        private listWorkersDataSetTableAdapters.СписокЦеховTableAdapter списокЦеховTableAdapter;
+        private System.Windows.Forms.BindingSource списокЦеховBindingSource;
+        private listWorkersDataSetTableAdapters.СправочникТарифовTableAdapter справочникТарифовTableAdapter;
+        private System.Windows.Forms.BindingSource списокЦеховBindingSource1;
+        private System.Windows.Forms.BindingSource списокЦеховСправочникРаботниковBindingSource;
+        private System.Windows.Forms.BindingSource списокЦеховСправочникРаботниковBindingSource1;
+        private System.Windows.Forms.BindingSource справочникТарифовBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewComboBoxColumn Разряд;
+        private System.Windows.Forms.DataGridViewComboBoxColumn Цех;
     }
 }

@@ -32,13 +32,19 @@ namespace pract_22 {
         
         private ТабельDataTable tableТабель;
         
-        private infWorkersDataTable tableinfWorkers;
+        private WorkersDataTable tableWorkers;
         
         private global::System.Data.DataRelation relationСписокЦеховСправочникРаботников;
         
         private global::System.Data.DataRelation relationСправочникТарифовСправочникРаботников;
         
         private global::System.Data.DataRelation relationСправочникРаботниковТабель;
+        
+        private global::System.Data.DataRelation relationСправочникРаботниковТабель1;
+        
+        private global::System.Data.DataRelation relationСписокЦеховСправочникРаботников1;
+        
+        private global::System.Data.DataRelation relationСправочникТарифовСправочникРаботников1;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -80,8 +86,8 @@ namespace pract_22 {
                 if ((ds.Tables["Табель"] != null)) {
                     base.Tables.Add(new ТабельDataTable(ds.Tables["Табель"]));
                 }
-                if ((ds.Tables["infWorkers"] != null)) {
-                    base.Tables.Add(new infWorkersDataTable(ds.Tables["infWorkers"]));
+                if ((ds.Tables["Workers"] != null)) {
+                    base.Tables.Add(new WorkersDataTable(ds.Tables["Workers"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -145,9 +151,9 @@ namespace pract_22 {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public infWorkersDataTable infWorkers {
+        public WorkersDataTable Workers {
             get {
-                return this.tableinfWorkers;
+                return this.tableWorkers;
             }
         }
         
@@ -230,8 +236,8 @@ namespace pract_22 {
                 if ((ds.Tables["Табель"] != null)) {
                     base.Tables.Add(new ТабельDataTable(ds.Tables["Табель"]));
                 }
-                if ((ds.Tables["infWorkers"] != null)) {
-                    base.Tables.Add(new infWorkersDataTable(ds.Tables["infWorkers"]));
+                if ((ds.Tables["Workers"] != null)) {
+                    base.Tables.Add(new WorkersDataTable(ds.Tables["Workers"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -290,15 +296,18 @@ namespace pract_22 {
                     this.tableТабель.InitVars();
                 }
             }
-            this.tableinfWorkers = ((infWorkersDataTable)(base.Tables["infWorkers"]));
+            this.tableWorkers = ((WorkersDataTable)(base.Tables["Workers"]));
             if ((initTable == true)) {
-                if ((this.tableinfWorkers != null)) {
-                    this.tableinfWorkers.InitVars();
+                if ((this.tableWorkers != null)) {
+                    this.tableWorkers.InitVars();
                 }
             }
             this.relationСписокЦеховСправочникРаботников = this.Relations["СписокЦеховСправочникРаботников"];
             this.relationСправочникТарифовСправочникРаботников = this.Relations["СправочникТарифовСправочникРаботников"];
             this.relationСправочникРаботниковТабель = this.Relations["СправочникРаботниковТабель"];
+            this.relationСправочникРаботниковТабель1 = this.Relations["СправочникРаботниковТабель1"];
+            this.relationСписокЦеховСправочникРаботников1 = this.Relations["СписокЦеховСправочникРаботников1"];
+            this.relationСправочникТарифовСправочникРаботников1 = this.Relations["СправочникТарифовСправочникРаботников1"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -317,8 +326,8 @@ namespace pract_22 {
             base.Tables.Add(this.tableСправочникТарифов);
             this.tableТабель = new ТабельDataTable();
             base.Tables.Add(this.tableТабель);
-            this.tableinfWorkers = new infWorkersDataTable();
-            base.Tables.Add(this.tableinfWorkers);
+            this.tableWorkers = new WorkersDataTable();
+            base.Tables.Add(this.tableWorkers);
             this.relationСписокЦеховСправочникРаботников = new global::System.Data.DataRelation("СписокЦеховСправочникРаботников", new global::System.Data.DataColumn[] {
                         this.tableСписокЦехов.ЦехColumn}, new global::System.Data.DataColumn[] {
                         this.tableСправочникРаботников.ЦехColumn}, false);
@@ -331,6 +340,18 @@ namespace pract_22 {
                         this.tableСправочникРаботников.ТабельныйНомерColumn}, new global::System.Data.DataColumn[] {
                         this.tableТабель.ТабельныйНомерColumn}, false);
             this.Relations.Add(this.relationСправочникРаботниковТабель);
+            this.relationСправочникРаботниковТабель1 = new global::System.Data.DataRelation("СправочникРаботниковТабель1", new global::System.Data.DataColumn[] {
+                        this.tableWorkers.ТабельныйНомерColumn}, new global::System.Data.DataColumn[] {
+                        this.tableТабель.ТабельныйНомерColumn}, false);
+            this.Relations.Add(this.relationСправочникРаботниковТабель1);
+            this.relationСписокЦеховСправочникРаботников1 = new global::System.Data.DataRelation("СписокЦеховСправочникРаботников1", new global::System.Data.DataColumn[] {
+                        this.tableСписокЦехов.ЦехColumn}, new global::System.Data.DataColumn[] {
+                        this.tableWorkers.ЦехColumn}, false);
+            this.Relations.Add(this.relationСписокЦеховСправочникРаботников1);
+            this.relationСправочникТарифовСправочникРаботников1 = new global::System.Data.DataRelation("СправочникТарифовСправочникРаботников1", new global::System.Data.DataColumn[] {
+                        this.tableСправочникТарифов.РазрядColumn}, new global::System.Data.DataColumn[] {
+                        this.tableWorkers.РазрядColumn}, false);
+            this.Relations.Add(this.relationСправочникТарифовСправочникРаботников1);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -359,7 +380,7 @@ namespace pract_22 {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private bool ShouldSerializeinfWorkers() {
+        private bool ShouldSerializeWorkers() {
             return false;
         }
         
@@ -431,7 +452,7 @@ namespace pract_22 {
         public delegate void ТабельRowChangeEventHandler(object sender, ТабельRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public delegate void infWorkersRowChangeEventHandler(object sender, infWorkersRowChangeEvent e);
+        public delegate void WorkersRowChangeEventHandler(object sender, WorkersRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -1582,7 +1603,7 @@ namespace pract_22 {
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class infWorkersDataTable : global::System.Data.TypedTableBase<infWorkersRow> {
+        public partial class WorkersDataTable : global::System.Data.TypedTableBase<WorkersRow> {
             
             private global::System.Data.DataColumn columnТабельныйНомер;
             
@@ -1590,16 +1611,14 @@ namespace pract_22 {
             
             private global::System.Data.DataColumn columnРазряд;
             
-            private global::System.Data.DataColumn columnТариф;
+            private global::System.Data.DataColumn columnЦех;
             
             private global::System.Data.DataColumn columnОтрабВремяВЧасах;
             
-            private global::System.Data.DataColumn columnНаименованиеЦеха;
-            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public infWorkersDataTable() {
-                this.TableName = "infWorkers";
+            public WorkersDataTable() {
+                this.TableName = "Workers";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -1607,7 +1626,7 @@ namespace pract_22 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal infWorkersDataTable(global::System.Data.DataTable table) {
+            internal WorkersDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -1624,7 +1643,7 @@ namespace pract_22 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected infWorkersDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected WorkersDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
@@ -1655,9 +1674,9 @@ namespace pract_22 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn ТарифColumn {
+            public global::System.Data.DataColumn ЦехColumn {
                 get {
-                    return this.columnТариф;
+                    return this.columnЦех;
                 }
             }
             
@@ -1666,14 +1685,6 @@ namespace pract_22 {
             public global::System.Data.DataColumn ОтрабВремяВЧасахColumn {
                 get {
                     return this.columnОтрабВремяВЧасах;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn НаименованиеЦехаColumn {
-                get {
-                    return this.columnНаименованиеЦеха;
                 }
             }
             
@@ -1688,50 +1699,55 @@ namespace pract_22 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public infWorkersRow this[int index] {
+            public WorkersRow this[int index] {
                 get {
-                    return ((infWorkersRow)(this.Rows[index]));
+                    return ((WorkersRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event infWorkersRowChangeEventHandler infWorkersRowChanging;
+            public event WorkersRowChangeEventHandler WorkersRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event infWorkersRowChangeEventHandler infWorkersRowChanged;
+            public event WorkersRowChangeEventHandler WorkersRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event infWorkersRowChangeEventHandler infWorkersRowDeleting;
+            public event WorkersRowChangeEventHandler WorkersRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event infWorkersRowChangeEventHandler infWorkersRowDeleted;
+            public event WorkersRowChangeEventHandler WorkersRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void AddinfWorkersRow(infWorkersRow row) {
+            public void AddWorkersRow(WorkersRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public infWorkersRow AddinfWorkersRow(short ТабельныйНомер, string Фамилия, int Разряд, int Тариф, string ОтрабВремяВЧасах, string НаименованиеЦеха) {
-                infWorkersRow rowinfWorkersRow = ((infWorkersRow)(this.NewRow()));
+            public WorkersRow AddWorkersRow(short ТабельныйНомер, string Фамилия, СправочникТарифовRow parentСправочникТарифовRowByСправочникТарифовСправочникРаботников1, СписокЦеховRow parentСписокЦеховRowByСписокЦеховСправочникРаботников1, string ОтрабВремяВЧасах) {
+                WorkersRow rowWorkersRow = ((WorkersRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         ТабельныйНомер,
                         Фамилия,
-                        Разряд,
-                        Тариф,
-                        ОтрабВремяВЧасах,
-                        НаименованиеЦеха};
-                rowinfWorkersRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowinfWorkersRow);
-                return rowinfWorkersRow;
+                        null,
+                        null,
+                        ОтрабВремяВЧасах};
+                if ((parentСправочникТарифовRowByСправочникТарифовСправочникРаботников1 != null)) {
+                    columnValuesArray[2] = parentСправочникТарифовRowByСправочникТарифовСправочникРаботников1[0];
+                }
+                if ((parentСписокЦеховRowByСписокЦеховСправочникРаботников1 != null)) {
+                    columnValuesArray[3] = parentСписокЦеховRowByСписокЦеховСправочникРаботников1[0];
+                }
+                rowWorkersRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowWorkersRow);
+                return rowWorkersRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                infWorkersDataTable cln = ((infWorkersDataTable)(base.Clone()));
+                WorkersDataTable cln = ((WorkersDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -1739,7 +1755,7 @@ namespace pract_22 {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new infWorkersDataTable();
+                return new WorkersDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1748,9 +1764,8 @@ namespace pract_22 {
                 this.columnТабельныйНомер = base.Columns["ТабельныйНомер"];
                 this.columnФамилия = base.Columns["Фамилия"];
                 this.columnРазряд = base.Columns["Разряд"];
-                this.columnТариф = base.Columns["Тариф"];
+                this.columnЦех = base.Columns["Цех"];
                 this.columnОтрабВремяВЧасах = base.Columns["ОтрабВремяВЧасах"];
-                this.columnНаименованиеЦеха = base.Columns["НаименованиеЦеха"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1762,41 +1777,39 @@ namespace pract_22 {
                 base.Columns.Add(this.columnФамилия);
                 this.columnРазряд = new global::System.Data.DataColumn("Разряд", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnРазряд);
-                this.columnТариф = new global::System.Data.DataColumn("Тариф", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnТариф);
+                this.columnЦех = new global::System.Data.DataColumn("Цех", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnЦех);
                 this.columnОтрабВремяВЧасах = new global::System.Data.DataColumn("ОтрабВремяВЧасах", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnОтрабВремяВЧасах);
-                this.columnНаименованиеЦеха = new global::System.Data.DataColumn("НаименованиеЦеха", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnНаименованиеЦеха);
                 this.columnФамилия.MaxLength = 30;
+                this.columnЦех.MaxLength = 255;
                 this.columnОтрабВремяВЧасах.MaxLength = 255;
-                this.columnНаименованиеЦеха.MaxLength = 100;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public infWorkersRow NewinfWorkersRow() {
-                return ((infWorkersRow)(this.NewRow()));
+            public WorkersRow NewWorkersRow() {
+                return ((WorkersRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new infWorkersRow(builder);
+                return new WorkersRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(infWorkersRow);
+                return typeof(WorkersRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.infWorkersRowChanged != null)) {
-                    this.infWorkersRowChanged(this, new infWorkersRowChangeEvent(((infWorkersRow)(e.Row)), e.Action));
+                if ((this.WorkersRowChanged != null)) {
+                    this.WorkersRowChanged(this, new WorkersRowChangeEvent(((WorkersRow)(e.Row)), e.Action));
                 }
             }
             
@@ -1804,8 +1817,8 @@ namespace pract_22 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.infWorkersRowChanging != null)) {
-                    this.infWorkersRowChanging(this, new infWorkersRowChangeEvent(((infWorkersRow)(e.Row)), e.Action));
+                if ((this.WorkersRowChanging != null)) {
+                    this.WorkersRowChanging(this, new WorkersRowChangeEvent(((WorkersRow)(e.Row)), e.Action));
                 }
             }
             
@@ -1813,8 +1826,8 @@ namespace pract_22 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.infWorkersRowDeleted != null)) {
-                    this.infWorkersRowDeleted(this, new infWorkersRowChangeEvent(((infWorkersRow)(e.Row)), e.Action));
+                if ((this.WorkersRowDeleted != null)) {
+                    this.WorkersRowDeleted(this, new WorkersRowChangeEvent(((WorkersRow)(e.Row)), e.Action));
                 }
             }
             
@@ -1822,14 +1835,14 @@ namespace pract_22 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.infWorkersRowDeleting != null)) {
-                    this.infWorkersRowDeleting(this, new infWorkersRowChangeEvent(((infWorkersRow)(e.Row)), e.Action));
+                if ((this.WorkersRowDeleting != null)) {
+                    this.WorkersRowDeleting(this, new WorkersRowChangeEvent(((WorkersRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void RemoveinfWorkersRow(infWorkersRow row) {
+            public void RemoveWorkersRow(WorkersRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -1856,7 +1869,7 @@ namespace pract_22 {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "infWorkersDataTable";
+                attribute2.FixedValue = "WorkersDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -1958,6 +1971,17 @@ namespace pract_22 {
                 }
                 else {
                     return ((СправочникРаботниковRow[])(base.GetChildRows(this.Table.ChildRelations["СписокЦеховСправочникРаботников"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public WorkersRow[] GetWorkersRows() {
+                if ((this.Table.ChildRelations["СписокЦеховСправочникРаботников1"] == null)) {
+                    return new WorkersRow[0];
+                }
+                else {
+                    return ((WorkersRow[])(base.GetChildRows(this.Table.ChildRelations["СписокЦеховСправочникРаботников1"])));
                 }
             }
         }
@@ -2168,6 +2192,17 @@ namespace pract_22 {
                     return ((СправочникРаботниковRow[])(base.GetChildRows(this.Table.ChildRelations["СправочникТарифовСправочникРаботников"])));
                 }
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public WorkersRow[] GetWorkersRows() {
+                if ((this.Table.ChildRelations["СправочникТарифовСправочникРаботников1"] == null)) {
+                    return new WorkersRow[0];
+                }
+                else {
+                    return ((WorkersRow[])(base.GetChildRows(this.Table.ChildRelations["СправочникТарифовСправочникРаботников1"])));
+                }
+            }
         }
         
         /// <summary>
@@ -2240,6 +2275,17 @@ namespace pract_22 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public WorkersRow WorkersRow {
+                get {
+                    return ((WorkersRow)(this.GetParentRow(this.Table.ParentRelations["СправочникРаботниковТабель1"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["СправочникРаботниковТабель1"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsОтрабВремяВЧасахNull() {
                 return this.IsNull(this.tableТабель.ОтрабВремяВЧасахColumn);
             }
@@ -2266,15 +2312,15 @@ namespace pract_22 {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class infWorkersRow : global::System.Data.DataRow {
+        public partial class WorkersRow : global::System.Data.DataRow {
             
-            private infWorkersDataTable tableinfWorkers;
+            private WorkersDataTable tableWorkers;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal infWorkersRow(global::System.Data.DataRowBuilder rb) : 
+            internal WorkersRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tableinfWorkers = ((infWorkersDataTable)(this.Table));
+                this.tableWorkers = ((WorkersDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2282,14 +2328,14 @@ namespace pract_22 {
             public short ТабельныйНомер {
                 get {
                     try {
-                        return ((short)(this[this.tableinfWorkers.ТабельныйНомерColumn]));
+                        return ((short)(this[this.tableWorkers.ТабельныйНомерColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'ТабельныйНомер\' в таблице \'infWorkers\' равно DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'ТабельныйНомер\' в таблице \'Workers\' равно DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableinfWorkers.ТабельныйНомерColumn] = value;
+                    this[this.tableWorkers.ТабельныйНомерColumn] = value;
                 }
             }
             
@@ -2298,14 +2344,14 @@ namespace pract_22 {
             public string Фамилия {
                 get {
                     try {
-                        return ((string)(this[this.tableinfWorkers.ФамилияColumn]));
+                        return ((string)(this[this.tableWorkers.ФамилияColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Фамилия\' в таблице \'infWorkers\' равно DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Фамилия\' в таблице \'Workers\' равно DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableinfWorkers.ФамилияColumn] = value;
+                    this[this.tableWorkers.ФамилияColumn] = value;
                 }
             }
             
@@ -2314,30 +2360,30 @@ namespace pract_22 {
             public int Разряд {
                 get {
                     try {
-                        return ((int)(this[this.tableinfWorkers.РазрядColumn]));
+                        return ((int)(this[this.tableWorkers.РазрядColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Разряд\' в таблице \'infWorkers\' равно DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Разряд\' в таблице \'Workers\' равно DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableinfWorkers.РазрядColumn] = value;
+                    this[this.tableWorkers.РазрядColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int Тариф {
+            public string Цех {
                 get {
                     try {
-                        return ((int)(this[this.tableinfWorkers.ТарифColumn]));
+                        return ((string)(this[this.tableWorkers.ЦехColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Тариф\' в таблице \'infWorkers\' равно DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Цех\' в таблице \'Workers\' равно DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableinfWorkers.ТарифColumn] = value;
+                    this[this.tableWorkers.ЦехColumn] = value;
                 }
             }
             
@@ -2346,103 +2392,108 @@ namespace pract_22 {
             public string ОтрабВремяВЧасах {
                 get {
                     try {
-                        return ((string)(this[this.tableinfWorkers.ОтрабВремяВЧасахColumn]));
+                        return ((string)(this[this.tableWorkers.ОтрабВремяВЧасахColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'ОтрабВремяВЧасах\' в таблице \'infWorkers\' равно DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'ОтрабВремяВЧасах\' в таблице \'Workers\' равно DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableinfWorkers.ОтрабВремяВЧасахColumn] = value;
+                    this[this.tableWorkers.ОтрабВремяВЧасахColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string НаименованиеЦеха {
+            public СписокЦеховRow СписокЦеховRow {
                 get {
-                    try {
-                        return ((string)(this[this.tableinfWorkers.НаименованиеЦехаColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'НаименованиеЦеха\' в таблице \'infWorkers\' равно DBNull.", e);
-                    }
+                    return ((СписокЦеховRow)(this.GetParentRow(this.Table.ParentRelations["СписокЦеховСправочникРаботников1"])));
                 }
                 set {
-                    this[this.tableinfWorkers.НаименованиеЦехаColumn] = value;
+                    this.SetParentRow(value, this.Table.ParentRelations["СписокЦеховСправочникРаботников1"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public СправочникТарифовRow СправочникТарифовRow {
+                get {
+                    return ((СправочникТарифовRow)(this.GetParentRow(this.Table.ParentRelations["СправочникТарифовСправочникРаботников1"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["СправочникТарифовСправочникРаботников1"]);
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsТабельныйНомерNull() {
-                return this.IsNull(this.tableinfWorkers.ТабельныйНомерColumn);
+                return this.IsNull(this.tableWorkers.ТабельныйНомерColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetТабельныйНомерNull() {
-                this[this.tableinfWorkers.ТабельныйНомерColumn] = global::System.Convert.DBNull;
+                this[this.tableWorkers.ТабельныйНомерColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsФамилияNull() {
-                return this.IsNull(this.tableinfWorkers.ФамилияColumn);
+                return this.IsNull(this.tableWorkers.ФамилияColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetФамилияNull() {
-                this[this.tableinfWorkers.ФамилияColumn] = global::System.Convert.DBNull;
+                this[this.tableWorkers.ФамилияColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsРазрядNull() {
-                return this.IsNull(this.tableinfWorkers.РазрядColumn);
+                return this.IsNull(this.tableWorkers.РазрядColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetРазрядNull() {
-                this[this.tableinfWorkers.РазрядColumn] = global::System.Convert.DBNull;
+                this[this.tableWorkers.РазрядColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsТарифNull() {
-                return this.IsNull(this.tableinfWorkers.ТарифColumn);
+            public bool IsЦехNull() {
+                return this.IsNull(this.tableWorkers.ЦехColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetТарифNull() {
-                this[this.tableinfWorkers.ТарифColumn] = global::System.Convert.DBNull;
+            public void SetЦехNull() {
+                this[this.tableWorkers.ЦехColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsОтрабВремяВЧасахNull() {
-                return this.IsNull(this.tableinfWorkers.ОтрабВремяВЧасахColumn);
+                return this.IsNull(this.tableWorkers.ОтрабВремяВЧасахColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetОтрабВремяВЧасахNull() {
-                this[this.tableinfWorkers.ОтрабВремяВЧасахColumn] = global::System.Convert.DBNull;
+                this[this.tableWorkers.ОтрабВремяВЧасахColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsНаименованиеЦехаNull() {
-                return this.IsNull(this.tableinfWorkers.НаименованиеЦехаColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetНаименованиеЦехаNull() {
-                this[this.tableinfWorkers.НаименованиеЦехаColumn] = global::System.Convert.DBNull;
+            public ТабельRow[] GetТабельRows() {
+                if ((this.Table.ChildRelations["СправочникРаботниковТабель1"] == null)) {
+                    return new ТабельRow[0];
+                }
+                else {
+                    return ((ТабельRow[])(base.GetChildRows(this.Table.ChildRelations["СправочникРаботниковТабель1"])));
+                }
             }
         }
         
@@ -2586,22 +2637,22 @@ namespace pract_22 {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public class infWorkersRowChangeEvent : global::System.EventArgs {
+        public class WorkersRowChangeEvent : global::System.EventArgs {
             
-            private infWorkersRow eventRow;
+            private WorkersRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public infWorkersRowChangeEvent(infWorkersRow row, global::System.Data.DataRowAction action) {
+            public WorkersRowChangeEvent(WorkersRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public infWorkersRow Row {
+            public WorkersRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -4055,7 +4106,7 @@ namespace pract_22.listWorkersDataSetTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class infWorkersTableAdapter : global::System.ComponentModel.Component {
+    public partial class WorkersTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.OleDb.OleDbDataAdapter _adapter;
         
@@ -4069,7 +4120,7 @@ namespace pract_22.listWorkersDataSetTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public infWorkersTableAdapter() {
+        public WorkersTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -4166,13 +4217,12 @@ namespace pract_22.listWorkersDataSetTableAdapters {
             this._adapter = new global::System.Data.OleDb.OleDbDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "infWorkers";
+            tableMapping.DataSetTable = "Workers";
             tableMapping.ColumnMappings.Add("ТабельныйНомер", "ТабельныйНомер");
             tableMapping.ColumnMappings.Add("Фамилия", "Фамилия");
             tableMapping.ColumnMappings.Add("Разряд", "Разряд");
-            tableMapping.ColumnMappings.Add("Тариф", "Тариф");
+            tableMapping.ColumnMappings.Add("Цех", "Цех");
             tableMapping.ColumnMappings.Add("ОтрабВремяВЧасах", "ОтрабВремяВЧасах");
-            tableMapping.ColumnMappings.Add("НаименованиеЦеха", "НаименованиеЦеха");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -4186,43 +4236,23 @@ namespace pract_22.listWorkersDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.OleDb.OleDbCommand[3];
+            this._commandCollection = new global::System.Data.OleDb.OleDbCommand[1];
             this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT        СправочникРаботников.ТабельныйНомер, СправочникРаботников.Фамилия, СправочникРаботников.Разряд, СправочникТарифов.Тариф, Табель.ОтрабВремяВЧасах, СписокЦехов.НаименованиеЦеха
-FROM            (((Табель INNER JOIN
-                         СправочникРаботников ON Табель.ТабельныйНомер = СправочникРаботников.ТабельныйНомер) INNER JOIN
+            this._commandCollection[0].CommandText = @"SELECT        СправочникРаботников.Фамилия, СправочникРаботников.Разряд, СправочникРаботников.Цех, Табель.ОтрабВремяВЧасах, 
+                         СправочникРаботников.ТабельныйНомер
+FROM            (((СправочникРаботников LEFT OUTER JOIN
+                         СправочникТарифов ON СправочникРаботников.Разряд = СправочникТарифов.Разряд) LEFT OUTER JOIN
                          СписокЦехов ON СправочникРаботников.Цех = СписокЦехов.Цех) LEFT OUTER JOIN
-                         СправочникТарифов ON СправочникРаботников.Разряд = СправочникТарифов.Разряд)";
+                         Табель ON СправочникРаботников.ТабельныйНомер = Табель.ТабельныйНомер)";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1] = new global::System.Data.OleDb.OleDbCommand();
-            this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = @"SELECT        СправочникРаботников.ТабельныйНомер, СправочникРаботников.Фамилия, СправочникРаботников.Разряд, СправочникТарифов.Тариф, 
-                         Табель.ОтрабВремяВЧасах, СписокЦехов.НаименованиеЦеха
-FROM            (((Табель INNER JOIN
-                         СправочникРаботников ON Табель.ТабельныйНомер = СправочникРаботников.ТабельныйНомер) INNER JOIN
-                         СписокЦехов ON СправочникРаботников.Цех = СписокЦехов.Цех) LEFT OUTER JOIN
-                         СправочникТарифов ON СправочникРаботников.Разряд = СправочникТарифов.Разряд)
-WHERE        (СписокЦехов.НаименованиеЦеха = ?)";
-            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("НаименованиеЦеха", global::System.Data.OleDb.OleDbType.WChar, 100, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "НаименованиеЦеха", global::System.Data.DataRowVersion.Current, false, null));
-            this._commandCollection[2] = new global::System.Data.OleDb.OleDbCommand();
-            this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = @"SELECT        СправочникРаботников.ТабельныйНомер, СправочникРаботников.Фамилия, СправочникРаботников.Разряд, СправочникТарифов.Тариф, Табель.ОтрабВремяВЧасах, СписокЦехов.НаименованиеЦеха
-FROM            (((Табель LEFT OUTER JOIN
-                         СправочникРаботников ON Табель.ТабельныйНомер = СправочникРаботников.ТабельныйНомер) LEFT OUTER JOIN
-                         СписокЦехов ON СправочникРаботников.Цех = СписокЦехов.Цех) LEFT OUTER JOIN
-                         СправочникТарифов ON СправочникРаботников.Разряд = СправочникТарифов.Разряд)
-WHERE СписокЦехов.НаименованиеЦеха = ?";
-            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[2].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("НаименованиеЦеха", global::System.Data.OleDb.OleDbType.WChar, 100, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "НаименованиеЦеха", global::System.Data.DataRowVersion.Current, false, null));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(listWorkersDataSet.infWorkersDataTable dataTable) {
+        public virtual int Fill(listWorkersDataSet.WorkersDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -4235,64 +4265,11 @@ WHERE СписокЦехов.НаименованиеЦеха = ?";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual listWorkersDataSet.infWorkersDataTable GetData() {
+        public virtual listWorkersDataSet.WorkersDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            listWorkersDataSet.infWorkersDataTable dataTable = new listWorkersDataSet.infWorkersDataTable();
+            listWorkersDataSet.WorkersDataTable dataTable = new listWorkersDataSet.WorkersDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillBy(listWorkersDataSet.infWorkersDataTable dataTable, string НаименованиеЦеха) {
-            this.Adapter.SelectCommand = this.CommandCollection[2];
-            if ((НаименованиеЦеха == null)) {
-                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(НаименованиеЦеха));
-            }
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual global::System.Nullable<short> CountTest(string НаименованиеЦеха) {
-            global::System.Data.OleDb.OleDbCommand command = this.CommandCollection[1];
-            if ((НаименованиеЦеха == null)) {
-                command.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            else {
-                command.Parameters[0].Value = ((string)(НаименованиеЦеха));
-            }
-            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
-            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                command.Connection.Open();
-            }
-            object returnValue;
-            try {
-                returnValue = command.ExecuteScalar();
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    command.Connection.Close();
-                }
-            }
-            if (((returnValue == null) 
-                        || (returnValue.GetType() == typeof(global::System.DBNull)))) {
-                return new global::System.Nullable<short>();
-            }
-            else {
-                return new global::System.Nullable<short>(((short)(returnValue)));
-            }
         }
     }
     
