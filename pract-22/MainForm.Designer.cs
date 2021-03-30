@@ -32,15 +32,15 @@ namespace pract_22
             this.components = new System.ComponentModel.Container();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.операцииToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.OpenWorkersDirectory = new System.Windows.Forms.ToolStripMenuItem();
             this.OpenListPlaces = new System.Windows.Forms.ToolStripMenuItem();
             this.OpenTarifsDirectory = new System.Windows.Forms.ToolStripMenuItem();
+            this.OpenWorkersDirectory = new System.Windows.Forms.ToolStripMenuItem();
             this.запросыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ShowListPlaceWorkers = new System.Windows.Forms.ToolStripMenuItem();
             this.CountPlaceWorkers = new System.Windows.Forms.ToolStripMenuItem();
             this.ShowAll = new System.Windows.Forms.ToolStripMenuItem();
             this.справкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.оПрограммеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.AboutUs = new System.Windows.Forms.ToolStripMenuItem();
             this.listWorkersDataSet = new pract_22.listWorkersDataSet();
             this.workersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.workersTableAdapter = new pract_22.listWorkersDataSetTableAdapters.WorkersTableAdapter();
@@ -80,13 +80,6 @@ namespace pract_22
             this.операцииToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
             this.операцииToolStripMenuItem.Text = "Меню";
             // 
-            // OpenWorkersDirectory
-            // 
-            this.OpenWorkersDirectory.Name = "OpenWorkersDirectory";
-            this.OpenWorkersDirectory.Size = new System.Drawing.Size(210, 22);
-            this.OpenWorkersDirectory.Text = "Справочник работников";
-            this.OpenWorkersDirectory.Click += new System.EventHandler(this.OpenWorkersDirectory_Click);
-            // 
             // OpenListPlaces
             // 
             this.OpenListPlaces.Name = "OpenListPlaces";
@@ -100,6 +93,13 @@ namespace pract_22
             this.OpenTarifsDirectory.Size = new System.Drawing.Size(210, 22);
             this.OpenTarifsDirectory.Text = "Справочник тарифов";
             this.OpenTarifsDirectory.Click += new System.EventHandler(this.OpenTarifsDirectory_Click);
+            // 
+            // OpenWorkersDirectory
+            // 
+            this.OpenWorkersDirectory.Name = "OpenWorkersDirectory";
+            this.OpenWorkersDirectory.Size = new System.Drawing.Size(210, 22);
+            this.OpenWorkersDirectory.Text = "Справочник работников";
+            this.OpenWorkersDirectory.Click += new System.EventHandler(this.OpenWorkersDirectory_Click);
             // 
             // запросыToolStripMenuItem
             // 
@@ -123,6 +123,7 @@ namespace pract_22
             this.CountPlaceWorkers.Name = "CountPlaceWorkers";
             this.CountPlaceWorkers.Size = new System.Drawing.Size(309, 22);
             this.CountPlaceWorkers.Text = "Подсчитать количество работников в цехе";
+            this.CountPlaceWorkers.Click += new System.EventHandler(this.CountPlaceWorkers_Click);
             // 
             // ShowAll
             // 
@@ -134,16 +135,17 @@ namespace pract_22
             // справкаToolStripMenuItem
             // 
             this.справкаToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.оПрограммеToolStripMenuItem});
+            this.AboutUs});
             this.справкаToolStripMenuItem.Name = "справкаToolStripMenuItem";
             this.справкаToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
             this.справкаToolStripMenuItem.Text = "Справка";
             // 
-            // оПрограммеToolStripMenuItem
+            // AboutUs
             // 
-            this.оПрограммеToolStripMenuItem.Name = "оПрограммеToolStripMenuItem";
-            this.оПрограммеToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
-            this.оПрограммеToolStripMenuItem.Text = "О программе";
+            this.AboutUs.Name = "AboutUs";
+            this.AboutUs.Size = new System.Drawing.Size(180, 22);
+            this.AboutUs.Text = "О программе";
+            this.AboutUs.Click += new System.EventHandler(this.AboutUs_Click);
             // 
             // listWorkersDataSet
             // 
@@ -255,7 +257,7 @@ namespace pract_22
         private System.Windows.Forms.ToolStripMenuItem OpenWorkersDirectory;
         private System.Windows.Forms.ToolStripMenuItem OpenListPlaces;
         private System.Windows.Forms.ToolStripMenuItem справкаToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem оПрограммеToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem AboutUs;
         private System.Windows.Forms.ToolStripMenuItem OpenTarifsDirectory;
         private System.Windows.Forms.ToolStripMenuItem запросыToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ShowListPlaceWorkers;
