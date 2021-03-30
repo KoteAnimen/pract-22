@@ -64,6 +64,12 @@
     <Compile Include="CountWorkersByPlace.Designer.cs">
       <DependentUpon>CountWorkersByPlace.cs</DependentUpon>
     </Compile>
+    <Compile Include="GetHighWorkerSalary.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GetHighWorkerSalary.Designer.cs">
+      <DependentUpon>GetHighWorkerSalary.cs</DependentUpon>
+    </Compile>
     <Compile Include="ListPlaces.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -121,6 +127,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CountWorkersByPlace.resx">
       <DependentUpon>CountWorkersByPlace.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GetHighWorkerSalary.resx">
+      <DependentUpon>GetHighWorkerSalary.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ListPlaces.resx">
       <DependentUpon>ListPlaces.cs</DependentUpon>

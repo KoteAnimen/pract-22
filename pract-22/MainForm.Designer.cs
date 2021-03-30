@@ -43,6 +43,7 @@ namespace pract_22
             this.справкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.AboutUs = new System.Windows.Forms.ToolStripMenuItem();
             this.GetWorkersSalary = new System.Windows.Forms.ToolStripMenuItem();
+            this.DirectionSalary = new System.Windows.Forms.ToolStripMenuItem();
             this.workersDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -53,7 +54,7 @@ namespace pract_22
             this.listWorkersDataSet = new pract_22.listWorkersDataSet();
             this.workersTableAdapter = new pract_22.listWorkersDataSetTableAdapters.WorkersTableAdapter();
             this.tableAdapterManager = new pract_22.listWorkersDataSetTableAdapters.TableAdapterManager();
-            this.DirectionSalary = new System.Windows.Forms.ToolStripMenuItem();
+            this.GetHighSalary = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.workersDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.workersBindingSource)).BeginInit();
@@ -67,7 +68,8 @@ namespace pract_22
             this.запросыToolStripMenuItem,
             this.справкаToolStripMenuItem,
             this.GetWorkersSalary,
-            this.DirectionSalary});
+            this.DirectionSalary,
+            this.GetHighSalary});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
@@ -127,21 +129,21 @@ namespace pract_22
             // ShowListPlaceWorkers
             // 
             this.ShowListPlaceWorkers.Name = "ShowListPlaceWorkers";
-            this.ShowListPlaceWorkers.Size = new System.Drawing.Size(309, 22);
+            this.ShowListPlaceWorkers.Size = new System.Drawing.Size(310, 22);
             this.ShowListPlaceWorkers.Text = "Показать список работников цеха";
             this.ShowListPlaceWorkers.Click += new System.EventHandler(this.ShowListPlaceWorkers_Click);
             // 
             // CountPlaceWorkers
             // 
             this.CountPlaceWorkers.Name = "CountPlaceWorkers";
-            this.CountPlaceWorkers.Size = new System.Drawing.Size(309, 22);
+            this.CountPlaceWorkers.Size = new System.Drawing.Size(310, 22);
             this.CountPlaceWorkers.Text = "Подсчитать количество работников в цехе";
             this.CountPlaceWorkers.Click += new System.EventHandler(this.CountPlaceWorkers_Click);
             // 
             // ShowAll
             // 
             this.ShowAll.Name = "ShowAll";
-            this.ShowAll.Size = new System.Drawing.Size(309, 22);
+            this.ShowAll.Size = new System.Drawing.Size(310, 22);
             this.ShowAll.Text = "Показать все";
             this.ShowAll.Click += new System.EventHandler(this.ShowAll_Click);
             // 
@@ -163,9 +165,16 @@ namespace pract_22
             // GetWorkersSalary
             // 
             this.GetWorkersSalary.Name = "GetWorkersSalary";
-            this.GetWorkersSalary.Size = new System.Drawing.Size(249, 20);
-            this.GetWorkersSalary.Text = "Сформировать ведомость начислений зп";
+            this.GetWorkersSalary.Size = new System.Drawing.Size(86, 20);
+            this.GetWorkersSalary.Text = "Задание №3";
             this.GetWorkersSalary.Click += new System.EventHandler(this.GetWorkersSalary_Click);
+            // 
+            // DirectionSalary
+            // 
+            this.DirectionSalary.Name = "DirectionSalary";
+            this.DirectionSalary.Size = new System.Drawing.Size(86, 20);
+            this.DirectionSalary.Text = "Задание №4";
+            this.DirectionSalary.Click += new System.EventHandler(this.DirectionSalary_Click);
             // 
             // workersDataGridView
             // 
@@ -241,18 +250,19 @@ namespace pract_22
             // 
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
             this.tableAdapterManager.Connection = null;
+            this.tableAdapterManager.task5TableAdapter = null;
             this.tableAdapterManager.UpdateOrder = pract_22.listWorkersDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager.СписокЦеховTableAdapter = null;
             this.tableAdapterManager.СправочникРаботниковTableAdapter = null;
             this.tableAdapterManager.СправочникТарифовTableAdapter = null;
             this.tableAdapterManager.ТабельTableAdapter = null;
             // 
-            // DirectionSalary
+            // GetHighSalary
             // 
-            this.DirectionSalary.Name = "DirectionSalary";
-            this.DirectionSalary.Size = new System.Drawing.Size(138, 20);
-            this.DirectionSalary.Text = "Справка о средней зп";
-            this.DirectionSalary.Click += new System.EventHandler(this.DirectionSalary_Click);
+            this.GetHighSalary.Name = "GetHighSalary";
+            this.GetHighSalary.Size = new System.Drawing.Size(86, 20);
+            this.GetHighSalary.Text = "Задание №5";
+            this.GetHighSalary.Click += new System.EventHandler(this.GetHighSalary_Click);
             // 
             // MainForm
             // 
@@ -303,6 +313,7 @@ namespace pract_22
         private System.Windows.Forms.ToolStripMenuItem WorkersTabel;
         private System.Windows.Forms.ToolStripMenuItem GetWorkersSalary;
         private System.Windows.Forms.ToolStripMenuItem DirectionSalary;
+        private System.Windows.Forms.ToolStripMenuItem GetHighSalary;
     }
 }
 

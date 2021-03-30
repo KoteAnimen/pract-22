@@ -91,6 +91,12 @@ namespace pract_22
             AVGSalary salary = new AVGSalary();
             salary.ShowDialog();
         }
+
+        private void GetHighSalary_Click(object sender, EventArgs e)
+        {
+            GetHighWorkerSalary salary = new GetHighWorkerSalary();
+            salary.ShowDialog();
+        }
     }
 
     public static class Data
