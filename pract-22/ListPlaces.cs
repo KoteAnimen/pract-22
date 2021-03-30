@@ -31,5 +31,12 @@ namespace pract_22
             this.списокЦеховTableAdapter.Fill(this.listWorkersDataSet.СписокЦехов);
 
         }
+
+        private void Add_Click(object sender, EventArgs e)
+        {
+            AddPlace place = new AddPlace();
+            place.ShowDialog();
+            this.списокЦеховTableAdapter.Fill(this.listWorkersDataSet.СписокЦехов);
+        }
     }
 }

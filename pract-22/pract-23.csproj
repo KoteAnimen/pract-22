@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddPlace.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddPlace.Designer.cs">
+      <DependentUpon>AddPlace.cs</DependentUpon>
+    </Compile>
     <Compile Include="CountWorkersByPlace.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,6 +95,9 @@
     <Compile Include="WorkersDirectory.Designer.cs">
       <DependentUpon>WorkersDirectory.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AddPlace.resx">
+      <DependentUpon>AddPlace.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CountWorkersByPlace.resx">
       <DependentUpon>CountWorkersByPlace.cs</DependentUpon>
     </EmbeddedResource>
