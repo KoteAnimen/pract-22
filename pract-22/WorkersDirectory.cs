@@ -45,5 +45,20 @@ namespace pract_22
             this.tableAdapterManager.UpdateAll(this.listWorkersDataSet);
 
         }
+
+        private void ChangePlace_Click(object sender, EventArgs e)
+        {
+            Worker.id = справочникРаботниковDataGridView[0, справочникРаботниковDataGridView.CurrentRow.Index].Value.ToString();
+            PlaceWorkers place = new PlaceWorkers();
+            place.ShowDialog();
+            справочникРаботниковTableAdapter.UpdatePlace(Data.namePlace, Convert.ToInt16(Worker.id));
+            this.справочникРаботниковTableAdapter.Fill(this.listWorkersDataSet.СправочникРаботников);
+        }
+
+        
+    }
+    public static class Worker
+    {
+        public static string id;
     }
 }
